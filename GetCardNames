@@ -1,0 +1,17 @@
+        // URL of the API endpoint
+        var apiUrl = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
+
+        // Fetch the JSON data
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Get the array of cards from the JSON data
+                var cards = data.data;
+
+                // Extract the card names and store them in a variable
+                var cardNames = cards.map(card => card.name);
+
+                // Now you have the card names in the 'cardNames' variable
+                console.log("Card names:", cardNames);
+            })
+            .catch(error => console.error("Error fetching data:", error));
